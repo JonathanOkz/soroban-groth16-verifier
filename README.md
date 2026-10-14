@@ -8,17 +8,17 @@ The included parameters come from a single-party demo setup and the witnesses ar
 
 ## Testnet results
 
-Tested on testnet on 14 October 2026.
+Tested on testnet on 14 October 2026. Source code verified on StellarExpert.
 
-Contract: [`CDKXOFMYNT3JATHGJYXDPABDNCZXVCNNLJWSSOE7Q3TKK4I2JJT3FEEZ`](https://stellar.expert/explorer/testnet/contract/CDKXOFMYNT3JATHGJYXDPABDNCZXVCNNLJWSSOE7Q3TKK4I2JJT3FEEZ)
+Contract: [`CD4TNAQANCELKRSQ4XD2KFEAZN7CF6T7GDDJYZYWIIKFIY5D2HUKG7AI`](https://stellar.expert/explorer/testnet/contract/CD4TNAQANCELKRSQ4XD2KFEAZN7CF6T7GDDJYZYWIIKFIY5D2HUKG7AI)
 
 | Test | Public input | Result | Transaction |
 | --- | --- | --- | --- |
-| Proof for `3 * 11` | 33 | `true` | [0459fd86](https://stellar.expert/explorer/testnet/tx/0459fd86db0fd801131ef915eb9bccda669791fe41509827fabfd8f48c5b1549) |
-| Same proof, wrong input | 34 | `false` | [0cc91d67](https://stellar.expert/explorer/testnet/tx/0cc91d6734c63ce038054f30978d33f40913dc255606d5cc512ad5072a4dc0b6) |
-| Proof for `5 * 7` | 35 | `true` | [8814ce61](https://stellar.expert/explorer/testnet/tx/8814ce61fd2f3fafa8a4ce8b15bd901abc0e46b2df6253c97ef2119092198ada) |
+| Proof for `3 * 11` | 33 | `true` | [5b9d9c81](https://stellar.expert/explorer/testnet/tx/5b9d9c814bc4294e8e6d1d2e87dc37d68ae5d80b8e31d7218cd6ddc55d3deaa7) |
+| Same proof, wrong input | 34 | `false` | [5577e84c](https://stellar.expert/explorer/testnet/tx/5577e84c8ef5f3f9123fbc530552526e8d803045d3db1806a49ae3b4dd5a3e66) |
+| Proof for `5 * 7` | 35 | `true` | [469836e1](https://stellar.expert/explorer/testnet/tx/469836e12abbdfc41e9f24019e02f924dcec8666c68241466b69084695be72a5) |
 
-Verification cost: **0.0023203 XLM** per call in this run, excluding deployment. [Report](testnet-runs/2026-10-14T14-06-10-387Z-m5SEDq/report.json).
+Verification cost: **0.0023203 XLM** per call in this run, excluding deployment. [Report](testnet-runs/2026-10-14T14-21-45-671Z-qbJtOD/report.json).
 
 ## Build and test
 
@@ -36,6 +36,16 @@ npm test
 
 ```sh
 npm run testnet
+```
+
+To deploy the verified [release](https://github.com/JonathanOkz/soroban-groth16-verifier/releases/tag/v0.1.0_proof-verifier_cli28.1.0), download its WASM with the GitHub CLI and pass it to the script:
+
+```sh
+release_dir=$(mktemp -d)
+gh release download v0.1.0_proof-verifier_cli28.1.0 \
+  --repo JonathanOkz/soroban-groth16-verifier \
+  --pattern '*.wasm' --dir "$release_dir"
+node scripts/testnet.mjs "$release_dir/proof-verifier_v0.1.0.wasm"
 ```
 
 The script creates a Friendbot-funded account, deploys the contract and runs the three cases. It saves results directly in a new directory under `testnet-runs/` and writes `report.json` after all three cases pass.

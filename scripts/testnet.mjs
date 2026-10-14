@@ -10,7 +10,7 @@ import { submitTransaction, verifyOperation } from './transactions.mjs';
 
 const endpoint = 'https://soroban-testnet.stellar.org';
 const server = new rpc.Server(endpoint);
-const wasm = await readFile(builtWasmPath());
+const wasm = await readFile(process.argv[2] ?? builtWasmPath());
 const wasmSha256 = sha256Hex(wasm);
 const proofs = await loadFixtures();
 const network = await server.getNetwork();
