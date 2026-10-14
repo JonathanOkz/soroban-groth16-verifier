@@ -1,0 +1,18 @@
+{
+  "name": "soroban-groth16-verifier",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "test": "npm run build && node scripts/test-wasm.mjs",
+    "fixtures": "node scripts/generate-fixtures.mjs",
+    "build": "stellar contract build --locked",
+    "testnet": "npm run build && node scripts/testnet.mjs"
+  },
+  "dependencies": {
+    "@stellar/stellar-sdk": "^17.2.1",
+    "snarkjs": "^0.7.6"
+  }
+}

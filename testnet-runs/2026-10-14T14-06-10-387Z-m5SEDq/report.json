@@ -1,0 +1,52 @@
+{
+  "network": "testnet",
+  "protocolVersion": 29,
+  "rpcEndpoint": "https://soroban-testnet.stellar.org",
+  "contractId": "CDKXOFMYNT3JATHGJYXDPABDNCZXVCNNLJWSSOE7Q3TKK4I2JJT3FEEZ",
+  "signerPublicKey": "GBBWJDUK6CY5CPY2SYK55HZ5Z4J3MEO2YNGQUJ6HHVQ2YVWMTVSMUTUQ",
+  "wasmSha256": "388fde5a2e10d726c4d04d0598b262015ae5676dffc72f0aaac4273053cbe6f2",
+  "completedAt": "2026-10-14T14:06:43.616Z",
+  "transactions": [
+    {
+      "label": "upload",
+      "transactionHash": "0940f68824411e36d76b58efeb78792418d552190ddbaa99eba531ea1e2d1f78",
+      "ledger": 5192639,
+      "feeChargedStroops": "30967542",
+      "feeXlm": "3.0967542"
+    },
+    {
+      "label": "deploy",
+      "transactionHash": "e31df7e56c82fa0d2d372ac7b633cb24fcc3e17bcb4d9c53b96048543865575f",
+      "ledger": 5192640,
+      "feeChargedStroops": "81906",
+      "feeXlm": "0.0081906"
+    },
+    {
+      "label": "valid",
+      "transactionHash": "0459fd86db0fd801131ef915eb9bccda669791fe41509827fabfd8f48c5b1549",
+      "ledger": 5192641,
+      "feeChargedStroops": "23203",
+      "feeXlm": "0.0023203",
+      "publicInput": "33",
+      "verifierResult": true
+    },
+    {
+      "label": "invalid",
+      "transactionHash": "0cc91d6734c63ce038054f30978d33f40913dc255606d5cc512ad5072a4dc0b6",
+      "ledger": 5192642,
+      "feeChargedStroops": "23203",
+      "feeXlm": "0.0023203",
+      "publicInput": "34",
+      "verifierResult": false
+    },
+    {
+      "label": "second",
+      "transactionHash": "8814ce61fd2f3fafa8a4ce8b15bd901abc0e46b2df6253c97ef2119092198ada",
+      "ledger": 5192643,
+      "feeChargedStroops": "23203",
+      "feeXlm": "0.0023203",
+      "publicInput": "35",
+      "verifierResult": true
+    }
+  ]
+}

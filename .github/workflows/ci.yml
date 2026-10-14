@@ -1,0 +1,23 @@
+name: CI
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: rustup show active-toolchain
+      - uses: stellar/stellar-cli@v28.1.0
+      - run: npm ci --ignore-scripts
+      - run: cargo test --locked
+      - run: npm test
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets -- -D warnings

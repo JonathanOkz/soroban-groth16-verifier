@@ -1,0 +1,10 @@
+soroban-groth16-verifier
+
+The BN254 pairing verification structure in contracts/proof-verifier/src/lib.rs
+is adapted from stellar/soroban-examples, groth16_verifier, revision
+03d42aa6b973dcf3a453a99d0c6a6e8d25a196e2.
+Source: https://github.com/stellar/soroban-examples
+License: Apache License, Version 2.0 (included in LICENSE).
+
+Changes include a fixed Circom/snarkjs verification key, one canonical public
+scalar, explicit infinity rejection and synthetic multiplication test vectors.
